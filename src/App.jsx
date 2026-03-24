@@ -10,6 +10,7 @@ const CASH_APP_LINK = "https://cash.app/$tkdtitan";
 const VENMO_LINK = "https://venmo.com/u/proctorarp";
 const REVOLUT_LINK = "https://revolut.me/sjung97";
 const PAYPAL_LINK = "https://www.paypal.com/qrcodes/p2pqrc/YAYPVFJADBXJQ";
+const HOTEL_LINK = "https://hotel-vereya.com/en/home/";
 
 const directGiftOptions = [
   {
@@ -85,12 +86,18 @@ const timelineSteps = [
     summary: 'This part is about recovering from travel, checking in, and getting your bearings.',
     details: [
       'After you arrive, settle into your room, rest a little, and let us know you made it safely.',
-      'We will help guests get oriented with where to stay, where to meet, and how transportation will work.',
+      'We have arranged a group hotel option in central Stara Zagora for guests who want to stay together.',
       'No need to have everything figured out right away. The goal is simply to land and breathe.',
     ],
-    tips: ['Check in', 'Rest up', 'Text us when you arrive'],
+    tips: ['Check in', 'Hotel option', 'Text us when you arrive'],
     accent: 'bg-[#E3E0D3]',
     icon: MapPin,
+    hotel: {
+      name: 'Hotel Vereya',
+      rate: 'EUR70 per room, per night',
+      note: 'Includes breakfast and gives guests a simple home base in the center of town.',
+      href: HOTEL_LINK,
+    },
   },
   {
     phase: 'Step 04',
@@ -181,7 +188,6 @@ export default function App() {
   const navLinks = [
     { name: 'Story', href: '#story' },
     { name: 'Journey', href: '#journey' },
-    { name: 'Events', href: '#events' },
     { name: 'Travel', href: '#travel' },
     { name: 'RSVP', href: '#rsvp' },
     { name: 'Gifts', href: '#gifts' },
@@ -326,6 +332,23 @@ export default function App() {
                   ))}
                 </div>
 
+                {currentTimelineStep.hotel && (
+                  <div className="relative z-10 mb-8 rounded-[1.5rem] border border-white/10 bg-white/5 p-5 md:p-6">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-tanBg mb-3">Stay Together</p>
+                    <h4 className="font-serif text-2xl md:text-3xl mb-2">{currentTimelineStep.hotel.name}</h4>
+                    <p className="text-textLight/75 mb-2">{currentTimelineStep.hotel.note}</p>
+                    <p className="font-mono text-xs uppercase tracking-[0.22em] text-textLight/60 mb-4">{currentTimelineStep.hotel.rate}</p>
+                    <a
+                      href={currentTimelineStep.hotel.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-tanBg font-semibold underline underline-offset-4 hover:text-textLight transition-colors"
+                    >
+                      View Hotel Details <ExternalLink size={16} />
+                    </a>
+                  </div>
+                )}
+
                 <div className="relative z-10 flex flex-wrap gap-3">
                   {currentTimelineStep.tips.map((tip) => (
                     <span key={tip} className="rounded-full border border-white/15 bg-white/5 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.2em] text-textLight/80">
@@ -392,29 +415,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. EVENTS SECTION */}
-      <section id="events" className="w-full py-24 md:py-32 px-6 bg-background">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-4xl md:text-5xl text-center mb-16 md:mb-24 fade-up">Wedding Week</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
-            
-            <div className="flex flex-col border-t-thin pt-6 fade-up">
-              <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-textDark/50 mb-2">May 23–24</h3>
-              <h4 className="font-sans text-2xl mb-4">Celebration Gatherings</h4>
-              <p className="text-textDark/80">We’ll spend time together, explore the area, and celebrate with those who have made the trip.</p>
-            </div>
-            
-            <div className="flex flex-col border-t-thin pt-6 fade-up">
-              <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-textDark/50 mb-2">May 26</h3>
-              <h4 className="font-sans text-2xl mb-4">Wedding Ceremony</h4>
-              <p className="text-textDark/80">Full details and timing will be shared closer to the date.</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 5. TRAVEL & STAY SECTION */}
+      {/* 4. TRAVEL & STAY SECTION */}
       <section id="travel" className="w-full py-24 md:py-32 px-6 bg-tanBg text-textDark">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-24">
           <div className="md:w-1/3 fade-up">
@@ -424,23 +425,14 @@ export default function App() {
             </div>
           </div>
           <div className="md:w-2/3 space-y-6 text-base md:text-lg text-textDark/80 fade-up">
-            <p>We’ve arranged a group hotel option in the center of Stara Zagora for those who would like to stay together.</p>
-            
-            <div className="bg-background/40 p-6 md:p-8 rounded-lg my-8 space-y-4 shadow-sm">
-              <h3 className="font-sans text-xl font-bold text-textDark">Hotel Vereya</h3>
-              <p className="font-mono text-sm tracking-wide">€70 per room, per night (includes breakfast)</p>
-              <a href="https://hotel-vereya.com/en/home/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-darkBg hover:text-black font-semibold underline underline-offset-4 transition-colors">
-                View Hotel Details <ExternalLink size={16} />
-              </a>
-            </div>
-
-            <p>If you prefer to stay elsewhere, we’re happy to recommend other options.</p>
+            <p>The main hotel details now live inside the journey timeline so you can see lodging in the same flow as flights, arrival, and wedding events.</p>
+            <p>If you prefer to stay somewhere else, we’re still happy to recommend other options.</p>
             <p>The wedding venue is not within walking distance of the hotel, but we will help coordinate transportation.</p>
           </div>
         </div>
       </section>
 
-      {/* 6. RSVP & 7. LIVESTREAM SECTION */}
+      {/* 5. RSVP & 6. LIVESTREAM SECTION */}
       <section id="rsvp" className="w-full py-24 md:py-32 px-6 bg-darkBg text-textLight">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           
@@ -467,7 +459,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 8. GIFTS & GIVING SECTION */}
+      {/* 7. GIFTS & GIVING SECTION */}
       <section id="gifts" className="w-full py-24 md:py-32 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start">
@@ -555,7 +547,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 9. NOTE SECTION */}
+      {/* 8. NOTE SECTION */}
       <section className="w-full py-24 px-6 bg-tanBg">
         <div className="max-w-3xl mx-auto text-center fade-up">
           <h2 className="font-serif text-3xl md:text-4xl mb-6">A Quick Note</h2>
@@ -567,7 +559,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 10. FOOTER */}
+      {/* 9. FOOTER */}
       <footer className="w-full bg-darkBg text-textLight py-24 px-6 text-center overflow-hidden relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_0%,transparent_100%)] pointer-events-none fade-up"></div>
         <div className="max-w-lg mx-auto relative z-10 fade-up">
