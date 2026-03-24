@@ -165,7 +165,6 @@ const Button = ({ href, children, variant = 'primary' }) => {
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeTimelineStep, setActiveTimelineStep] = useState(3);
 
   useEffect(() => {
     // Global simple scroll animation for elements with .fade-up
@@ -188,13 +187,9 @@ export default function App() {
   const navLinks = [
     { name: 'Story', href: '#story' },
     { name: 'Journey', href: '#journey' },
-    { name: 'Travel', href: '#travel' },
     { name: 'RSVP', href: '#rsvp' },
     { name: 'Gifts', href: '#gifts' },
   ];
-
-  const currentTimelineStep = timelineSteps[activeTimelineStep];
-  const CurrentTimelineIcon = currentTimelineStep.icon;
 
   return (
     <div className="bg-background text-textDark font-sans selection:bg-tanBg selection:text-textDark font-light leading-relaxed">
@@ -295,142 +290,77 @@ export default function App() {
 
       {/* 3. JOURNEY TIMELINE SECTION */}
       <section id="journey" className="w-full py-24 md:py-32 px-6 bg-darkBg text-textLight overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <div className="max-w-3xl mb-16 md:mb-20 fade-up">
+        <div className="max-w-4xl mx-auto">
+          <div className="max-w-3xl mb-16 md:mb-24 fade-up">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-tanBg mb-4">Trip Overview</p>
             <h2 className="font-serif text-4xl md:text-6xl leading-tight mb-6">A simple way to see the whole trip at a glance.</h2>
             <p className="text-textLight/75 text-base md:text-lg max-w-2xl">
-              From booking your ticket to heading home, this timeline is here to make the week feel approachable. Tap through the steps for the practical details, then breathe easy.
+              From booking your ticket to heading home, this timeline walks you through the practical details step by step.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-8 lg:gap-12 items-start">
-            <div className="fade-up">
-              <div className="relative rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden p-6 md:p-8">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(188,168,147,0.22)_0%,transparent_58%)] pointer-events-none"></div>
-                <div className="relative z-10 flex items-start justify-between gap-4 mb-8">
-                  <div>
-                    <p className="font-mono text-xs uppercase tracking-[0.3em] text-tanBg mb-3">{currentTimelineStep.phase}</p>
-                    <h3 className="font-serif text-3xl md:text-4xl leading-tight mb-3">{currentTimelineStep.title}</h3>
-                    <p className="text-textLight/70 text-sm md:text-base">{currentTimelineStep.timing}</p>
-                  </div>
-                  <div className={`shrink-0 rounded-full ${currentTimelineStep.accent} text-darkBg p-4 shadow-lg`}>
-                    <CurrentTimelineIcon size={24} />
-                  </div>
-                </div>
+          <div className="relative pl-6 md:pl-10 lg:pl-12">
+            {/* The vertical line */}
+            <div className="absolute left-[11px] md:left-[19px] lg:left-[23px] top-6 bottom-6 w-px bg-gradient-to-b from-tanBg/20 via-tanBg/50 to-tanBg/20"></div>
 
-                <p className="relative z-10 text-base md:text-lg text-textLight/80 mb-8 max-w-2xl">
-                  {currentTimelineStep.summary}
-                </p>
-
-                <div className="relative z-10 space-y-4 mb-8">
-                  {currentTimelineStep.details.map((detail) => (
-                    <div key={detail} className="flex items-start gap-3 border-t border-white/10 pt-4">
-                      <span className="mt-1 h-2.5 w-2.5 rounded-full bg-tanBg shrink-0"></span>
-                      <p className="text-textLight/75">{detail}</p>
+            <div className="space-y-20 lg:space-y-28">
+              {timelineSteps.map((step) => {
+                const StepIcon = step.icon;
+                return (
+                  <div key={step.phase} className="relative fade-up w-full">
+                    {/* The timeline node/icon */}
+                    <div className={`absolute -left-[32px] md:-left-[42px] lg:-left-[47px] top-0 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full border-4 border-darkBg ${step.accent} shadow-xl z-10`}>
+                      <StepIcon size={18} className="text-darkBg" />
                     </div>
-                  ))}
-                </div>
 
-                {currentTimelineStep.hotel && (
-                  <div className="relative z-10 mb-8 rounded-[1.5rem] border border-white/10 bg-white/5 p-5 md:p-6">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-tanBg mb-3">Stay Together</p>
-                    <h4 className="font-serif text-2xl md:text-3xl mb-2">{currentTimelineStep.hotel.name}</h4>
-                    <p className="text-textLight/75 mb-2">{currentTimelineStep.hotel.note}</p>
-                    <p className="font-mono text-xs uppercase tracking-[0.22em] text-textLight/60 mb-4">{currentTimelineStep.hotel.rate}</p>
-                    <a
-                      href={currentTimelineStep.hotel.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-tanBg font-semibold underline underline-offset-4 hover:text-textLight transition-colors"
-                    >
-                      View Hotel Details <ExternalLink size={16} />
-                    </a>
-                  </div>
-                )}
-
-                <div className="relative z-10 flex flex-wrap gap-3">
-                  {currentTimelineStep.tips.map((tip) => (
-                    <span key={tip} className="rounded-full border border-white/15 bg-white/5 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.2em] text-textLight/80">
-                      {tip}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="fade-up">
-              <div className="relative pl-6 md:pl-10">
-                <div className="absolute left-[10px] md:left-4 top-2 bottom-2 w-px bg-gradient-to-b from-tanBg/10 via-tanBg to-tanBg/10"></div>
-                <div className="space-y-4">
-                  {timelineSteps.map((step, index) => {
-                    const StepIcon = step.icon;
-                    const isActive = index === activeTimelineStep;
-
-                    return (
-                      <button
-                        key={step.title}
-                        type="button"
-                        onClick={() => setActiveTimelineStep(index)}
-                        className={`group relative w-full text-left rounded-[1.75rem] border px-5 py-5 md:px-6 md:py-6 transition-all duration-300 ${
-                          isActive
-                            ? 'border-tanBg bg-white text-darkBg shadow-2xl shadow-black/20'
-                            : 'border-white/10 bg-white/[0.04] text-textLight hover:border-white/20 hover:bg-white/[0.08]'
-                        }`}
-                      >
-                        <span
-                          className={`absolute -left-[22px] md:-left-[30px] top-7 flex h-6 w-6 items-center justify-center rounded-full border ${
-                            isActive ? 'border-tanBg bg-tanBg text-darkBg' : 'border-white/15 bg-darkBg text-textLight'
-                          }`}
-                        >
-                          <span className="h-2.5 w-2.5 rounded-full bg-current"></span>
-                        </span>
-
-                        <div className="flex items-start gap-4">
-                          <div className={`rounded-2xl p-3 shrink-0 ${isActive ? step.accent : 'bg-white/10'}`}>
-                            <StepIcon size={20} className={isActive ? 'text-darkBg' : 'text-tanBg'} />
-                          </div>
-                          <div className="min-w-0">
-                            <p className={`font-mono text-[11px] uppercase tracking-[0.28em] mb-2 ${isActive ? 'text-darkBg/60' : 'text-tanBg'}`}>
-                              {step.phase} · {step.label}
-                            </p>
-                            <h3 className={`font-serif text-2xl leading-tight mb-2 ${isActive ? 'text-darkBg' : 'text-textLight'}`}>
-                              {step.title}
-                            </h3>
-                            <p className={`text-sm mb-3 ${isActive ? 'text-darkBg/65' : 'text-textLight/55'}`}>
-                              {step.timing}
-                            </p>
-                            <p className={`text-sm md:text-base ${isActive ? 'text-darkBg/80' : 'text-textLight/70'}`}>
-                              {step.summary}
-                            </p>
-                          </div>
+                    {/* The content card */}
+                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 pl-4 md:pl-6 pt-1 md:pt-2">
+                      <div className="lg:w-1/3 shrink-0">
+                        <p className="font-mono text-xs uppercase tracking-[0.25em] text-tanBg mb-3">{step.phase} &middot; {step.timing}</p>
+                        <h3 className="font-serif text-3xl md:text-4xl leading-tight text-white mb-4">{step.title}</h3>
+                      </div>
+                      <div className="lg:w-2/3">
+                        <p className="text-lg md:text-xl text-textLight/90 mb-6 leading-relaxed">{step.summary}</p>
+                        
+                        <div className="space-y-4 mb-8">
+                          {step.details.map((detail, idx) => (
+                            <div key={idx} className="flex items-start gap-4">
+                              <span className="mt-2.5 h-1 w-1 rounded-full bg-tanBg shrink-0"></span>
+                              <p className="text-textLight/70 text-sm md:text-base leading-relaxed">{detail}</p>
+                            </div>
+                          ))}
                         </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
+
+                        {step.hotel && (
+                          <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-white/5 p-6 md:p-8 mb-8 backdrop-blur-sm">
+                            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-tanBg mb-3">Stay Together</p>
+                            <h4 className="font-serif text-3xl text-white mb-3">{step.hotel.name}</h4>
+                            <p className="text-textLight/80 mb-3">{step.hotel.note}</p>
+                            <p className="font-mono text-xs uppercase tracking-[0.22em] text-tanBg/80 mb-6">{step.hotel.rate}</p>
+                            <Button href={step.hotel.href} variant="outlineLight">
+                              View Hotel Details <ExternalLink size={16} />
+                            </Button>
+                          </div>
+                        )}
+
+                        <div className="flex flex-wrap gap-2 mt-8 border-t border-white/10 pt-6">
+                          {step.tips.map((tip) => (
+                            <span key={tip} className="rounded-full bg-white/[0.03] border border-white/10 px-4 py-2 font-mono text-[10px] md:text-[11px] uppercase tracking-[0.15em] text-textLight/60 mix-blend-screen">
+                              {tip}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. TRAVEL & STAY SECTION */}
-      <section id="travel" className="w-full py-24 md:py-32 px-6 bg-tanBg text-textDark">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-24">
-          <div className="md:w-1/3 fade-up">
-            <h2 className="font-serif text-4xl md:text-5xl border-b border-textDark/10 pb-4">Travel & Stay</h2>
-            <div className="mt-8 rounded-lg overflow-hidden shrink-0 shadow-lg">
-              <img src="/abby-sam-photos/abby-sam-cold.jpg" className="w-full h-auto object-cover grayscale mix-blend-multiply opacity-80" />
-            </div>
-          </div>
-          <div className="md:w-2/3 space-y-6 text-base md:text-lg text-textDark/80 fade-up">
-            <p>The main hotel details now live inside the journey timeline so you can see lodging in the same flow as flights, arrival, and wedding events.</p>
-            <p>If you prefer to stay somewhere else, we’re still happy to recommend other options.</p>
-            <p>The wedding venue is not within walking distance of the hotel, but we will help coordinate transportation.</p>
-          </div>
-        </div>
-      </section>
+
 
       {/* 5. RSVP & 6. LIVESTREAM SECTION */}
       <section id="rsvp" className="w-full py-24 md:py-32 px-6 bg-darkBg text-textLight">
