@@ -9,6 +9,7 @@ const RSVP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdp1MPmL-K4xIklMsHzs
 const CASH_APP_LINK = "https://cash.app/$tkdtitan";
 const VENMO_LINK = "https://venmo.com/u/proctorarp";
 const REVOLUT_LINK = "https://revolut.me/sjung97";
+const PAYPAL_LINK = "https://www.paypal.com/qrcodes/p2pqrc/YAYPVFJADBXJQ";
 
 const directGiftOptions = [
   {
@@ -38,7 +39,7 @@ const qrGiftOptions = [
   },
   {
     name: 'PayPal QR',
-    href: null,
+    href: PAYPAL_LINK,
     image: '/abby-sam-photos/donate with paypall.jpeg',
     alt: 'PayPal donation QR code for Sam Young',
     note: 'Scan to give through PayPal.',
@@ -182,8 +183,8 @@ export default function App() {
       {/* Photo Insert 1 */}
       <div className="w-full h-64 md:h-96 overflow-hidden bg-tanBg">
         <img 
-          src="/abby-sam-photos/abby sam waterfall.jpeg" 
-          alt="Abby and Sam standing together by a waterfall" 
+          src="/abby-sam-photos/Athens-Drone-3.jpg" 
+          alt="A scenic drone photo from Athens" 
           className="w-full h-full object-cover grayscale mix-blend-multiply opacity-70 fade-up"
         />
       </div>
@@ -272,13 +273,14 @@ export default function App() {
                 <img
                   src="/abby-sam-photos/abby sam waterfall.jpeg"
                   alt="Abby and Sam standing together by a waterfall"
-                  className="w-full h-[24rem] md:h-[34rem] object-cover"
+                  className="w-full h-[24rem] md:h-[34rem] object-cover object-[center_62%]"
                 />
               </div>
               <h2 className="font-serif text-4xl md:text-5xl mb-6">Gifts & Giving</h2>
               <div className="space-y-5 text-base md:text-lg text-textDark/80 max-w-2xl">
                 <p>Your presence, whether in Bulgaria or online, means a lot to us.</p>
-                <p>As we begin married life in Bulgaria, we’re keeping gifts simple and flexible. If you’d like to support us, we’ve added a few direct ways to give so people can use whichever option is easiest.</p>
+                <p>Gifts are hard to ship internationally, so if you’d like to celebrate with us, a contribution toward our honeymoon and future life together would mean a lot.</p>
+                <p>We’ve added a few simple ways to give so you can use whichever option is easiest.</p>
                 <p className="italic">Thank you for loving us well and cheering us on from near or far.</p>
               </div>
             </div>
