@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ExternalLink, Menu, X } from 'lucide-react';
+import { Briefcase, ExternalLink, MapPin, Menu, Plane, Sparkles, X } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,6 +46,99 @@ const qrGiftOptions = [
   },
 ];
 
+const timelineSteps = [
+  {
+    phase: 'Step 01',
+    label: 'Before You Go',
+    title: 'Buy Tickets & Start Planning',
+    timing: 'As early as you can',
+    summary: 'Once you know you are coming, start watching flights and send us your rough travel plans.',
+    details: [
+      'International tickets are usually easier when booked earlier, especially around late spring.',
+      'If you want help comparing arrival options, we are happy to help think through routes and timing.',
+      'Trying to arrive before the main gatherings begin will make the whole trip feel much more relaxed.',
+    ],
+    tips: ['Book flights', 'Share itinerary', 'Ask us questions'],
+    accent: 'bg-[#E8D8C1]',
+    icon: Plane,
+  },
+  {
+    phase: 'Step 02',
+    label: 'Get Ready',
+    title: 'Pack for a Week That Mixes Celebration and Travel',
+    timing: 'The week before',
+    summary: 'Think comfortable, flexible, and easy to move around in during a full trip abroad.',
+    details: [
+      'Bring your passport, travel essentials, and any medications you need for the full trip.',
+      'Pack one dressier outfit for wedding events and comfortable clothes for hanging out, exploring, and travel days.',
+      'Layers will likely be your friend, especially for evenings or longer days out.',
+    ],
+    tips: ['Passport', 'Wedding outfit', 'Comfy shoes'],
+    accent: 'bg-[#D9D4C8]',
+    icon: Briefcase,
+  },
+  {
+    phase: 'Step 03',
+    label: 'Arrive',
+    title: 'Land, Exhale, and Get Settled',
+    timing: 'Arrival day',
+    summary: 'This part is about recovering from travel, checking in, and getting your bearings.',
+    details: [
+      'After you arrive, settle into your room, rest a little, and let us know you made it safely.',
+      'We will help guests get oriented with where to stay, where to meet, and how transportation will work.',
+      'No need to have everything figured out right away. The goal is simply to land and breathe.',
+    ],
+    tips: ['Check in', 'Rest up', 'Text us when you arrive'],
+    accent: 'bg-[#E3E0D3]',
+    icon: MapPin,
+  },
+  {
+    phase: 'Step 04',
+    label: 'Celebrate',
+    title: 'Pre-Wedding Gatherings and Time Together',
+    timing: 'May 23-24, 2026',
+    summary: 'These days are for seeing people, sharing meals, exploring, and easing into the week together.',
+    details: [
+      'We want this part of the trip to feel welcoming and relational, not rushed or overly scheduled.',
+      'Expect time for informal gatherings, conversations, and enjoying Bulgaria with the people who made the trip.',
+      'This is a great window for anyone arriving a little early to settle in before the ceremony.',
+    ],
+    tips: ['Meals together', 'Explore the area', 'Enjoy slower moments'],
+    accent: 'bg-[#E8CDBE]',
+    icon: Sparkles,
+  },
+  {
+    phase: 'Step 05',
+    label: 'Wedding Day',
+    title: 'Ceremony and Celebration',
+    timing: 'May 26, 2026',
+    summary: 'The heart of the trip: the ceremony itself and the time around it.',
+    details: [
+      'We will share final timing and venue details closer to the wedding so everyone has the clearest information.',
+      'The day will be focused on celebrating, being together, and beginning our marriage in a place that matters deeply to us.',
+      'We know many guests are traveling far, so we want the day to feel meaningful, joyful, and worth the journey.',
+    ],
+    tips: ['Final details later', 'Celebrate together', 'Take lots of photos'],
+    accent: 'bg-[#D7B7AA]',
+    icon: Sparkles,
+  },
+  {
+    phase: 'Step 06',
+    label: 'Afterward',
+    title: 'Hang Out, Recover, and Fly Home',
+    timing: 'After the ceremony',
+    summary: 'Think gentle goodbyes, one more coffee, and heading home with good memories.',
+    details: [
+      'Some guests may leave soon after the wedding, while others may have more time to linger before flying home.',
+      'If schedules line up, we would love extra moments together before everyone heads back.',
+      'This part does not need to be complicated. It can simply be restful and sweet.',
+    ],
+    tips: ['Easy departure day', 'One last hang', 'Travel home'],
+    accent: 'bg-[#D7C6B8]',
+    icon: Plane,
+  },
+];
+
 // Button Component
 const Button = ({ href, children, variant = 'primary' }) => {
   const baseStyle = "inline-flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 font-sans text-sm md:text-base font-medium tracking-wide transition-all duration-300 rounded-full text-center";
@@ -65,6 +158,7 @@ const Button = ({ href, children, variant = 'primary' }) => {
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeTimelineStep, setActiveTimelineStep] = useState(3);
 
   useEffect(() => {
     // Global simple scroll animation for elements with .fade-up
@@ -86,11 +180,15 @@ export default function App() {
 
   const navLinks = [
     { name: 'Story', href: '#story' },
+    { name: 'Journey', href: '#journey' },
     { name: 'Events', href: '#events' },
     { name: 'Travel', href: '#travel' },
     { name: 'RSVP', href: '#rsvp' },
     { name: 'Gifts', href: '#gifts' },
   ];
+
+  const currentTimelineStep = timelineSteps[activeTimelineStep];
+  const CurrentTimelineIcon = currentTimelineStep.icon;
 
   return (
     <div className="bg-background text-textDark font-sans selection:bg-tanBg selection:text-textDark font-light leading-relaxed">
@@ -189,7 +287,112 @@ export default function App() {
         />
       </div>
 
-      {/* 3. EVENTS SECTION */}
+      {/* 3. JOURNEY TIMELINE SECTION */}
+      <section id="journey" className="w-full py-24 md:py-32 px-6 bg-darkBg text-textLight overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-3xl mb-16 md:mb-20 fade-up">
+            <p className="font-mono text-xs uppercase tracking-[0.35em] text-tanBg mb-4">Trip Overview</p>
+            <h2 className="font-serif text-4xl md:text-6xl leading-tight mb-6">A simple way to see the whole trip at a glance.</h2>
+            <p className="text-textLight/75 text-base md:text-lg max-w-2xl">
+              From booking your ticket to heading home, this timeline is here to make the week feel approachable. Tap through the steps for the practical details, then breathe easy.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-8 lg:gap-12 items-start">
+            <div className="fade-up">
+              <div className="relative rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden p-6 md:p-8">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(188,168,147,0.22)_0%,transparent_58%)] pointer-events-none"></div>
+                <div className="relative z-10 flex items-start justify-between gap-4 mb-8">
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-[0.3em] text-tanBg mb-3">{currentTimelineStep.phase}</p>
+                    <h3 className="font-serif text-3xl md:text-4xl leading-tight mb-3">{currentTimelineStep.title}</h3>
+                    <p className="text-textLight/70 text-sm md:text-base">{currentTimelineStep.timing}</p>
+                  </div>
+                  <div className={`shrink-0 rounded-full ${currentTimelineStep.accent} text-darkBg p-4 shadow-lg`}>
+                    <CurrentTimelineIcon size={24} />
+                  </div>
+                </div>
+
+                <p className="relative z-10 text-base md:text-lg text-textLight/80 mb-8 max-w-2xl">
+                  {currentTimelineStep.summary}
+                </p>
+
+                <div className="relative z-10 space-y-4 mb-8">
+                  {currentTimelineStep.details.map((detail) => (
+                    <div key={detail} className="flex items-start gap-3 border-t border-white/10 pt-4">
+                      <span className="mt-1 h-2.5 w-2.5 rounded-full bg-tanBg shrink-0"></span>
+                      <p className="text-textLight/75">{detail}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="relative z-10 flex flex-wrap gap-3">
+                  {currentTimelineStep.tips.map((tip) => (
+                    <span key={tip} className="rounded-full border border-white/15 bg-white/5 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.2em] text-textLight/80">
+                      {tip}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="fade-up">
+              <div className="relative pl-6 md:pl-10">
+                <div className="absolute left-[10px] md:left-4 top-2 bottom-2 w-px bg-gradient-to-b from-tanBg/10 via-tanBg to-tanBg/10"></div>
+                <div className="space-y-4">
+                  {timelineSteps.map((step, index) => {
+                    const StepIcon = step.icon;
+                    const isActive = index === activeTimelineStep;
+
+                    return (
+                      <button
+                        key={step.title}
+                        type="button"
+                        onClick={() => setActiveTimelineStep(index)}
+                        className={`group relative w-full text-left rounded-[1.75rem] border px-5 py-5 md:px-6 md:py-6 transition-all duration-300 ${
+                          isActive
+                            ? 'border-tanBg bg-white text-darkBg shadow-2xl shadow-black/20'
+                            : 'border-white/10 bg-white/[0.04] text-textLight hover:border-white/20 hover:bg-white/[0.08]'
+                        }`}
+                      >
+                        <span
+                          className={`absolute -left-[22px] md:-left-[30px] top-7 flex h-6 w-6 items-center justify-center rounded-full border ${
+                            isActive ? 'border-tanBg bg-tanBg text-darkBg' : 'border-white/15 bg-darkBg text-textLight'
+                          }`}
+                        >
+                          <span className="h-2.5 w-2.5 rounded-full bg-current"></span>
+                        </span>
+
+                        <div className="flex items-start gap-4">
+                          <div className={`rounded-2xl p-3 shrink-0 ${isActive ? step.accent : 'bg-white/10'}`}>
+                            <StepIcon size={20} className={isActive ? 'text-darkBg' : 'text-tanBg'} />
+                          </div>
+                          <div className="min-w-0">
+                            <p className={`font-mono text-[11px] uppercase tracking-[0.28em] mb-2 ${isActive ? 'text-darkBg/60' : 'text-tanBg'}`}>
+                              {step.phase} · {step.label}
+                            </p>
+                            <h3 className={`font-serif text-2xl leading-tight mb-2 ${isActive ? 'text-darkBg' : 'text-textLight'}`}>
+                              {step.title}
+                            </h3>
+                            <p className={`text-sm mb-3 ${isActive ? 'text-darkBg/65' : 'text-textLight/55'}`}>
+                              {step.timing}
+                            </p>
+                            <p className={`text-sm md:text-base ${isActive ? 'text-darkBg/80' : 'text-textLight/70'}`}>
+                              {step.summary}
+                            </p>
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. EVENTS SECTION */}
       <section id="events" className="w-full py-24 md:py-32 px-6 bg-background">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-serif text-4xl md:text-5xl text-center mb-16 md:mb-24 fade-up">Wedding Week</h2>
@@ -211,7 +414,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. TRAVEL & STAY SECTION */}
+      {/* 5. TRAVEL & STAY SECTION */}
       <section id="travel" className="w-full py-24 md:py-32 px-6 bg-tanBg text-textDark">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-24">
           <div className="md:w-1/3 fade-up">
@@ -237,7 +440,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. RSVP & 6. LIVESTREAM SECTION */}
+      {/* 6. RSVP & 7. LIVESTREAM SECTION */}
       <section id="rsvp" className="w-full py-24 md:py-32 px-6 bg-darkBg text-textLight">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           
@@ -264,7 +467,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. GIFTS & GIVING SECTION */}
+      {/* 8. GIFTS & GIVING SECTION */}
       <section id="gifts" className="w-full py-24 md:py-32 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start">
@@ -352,7 +555,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 8. NOTE SECTION */}
+      {/* 9. NOTE SECTION */}
       <section className="w-full py-24 px-6 bg-tanBg">
         <div className="max-w-3xl mx-auto text-center fade-up">
           <h2 className="font-serif text-3xl md:text-4xl mb-6">A Quick Note</h2>
@@ -364,7 +567,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 9. FOOTER */}
+      {/* 10. FOOTER */}
       <footer className="w-full bg-darkBg text-textLight py-24 px-6 text-center overflow-hidden relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_0%,transparent_100%)] pointer-events-none fade-up"></div>
         <div className="max-w-lg mx-auto relative z-10 fade-up">
