@@ -161,7 +161,7 @@ export default function App() {
           <img 
             src="/abby-sam-photos/abby-sam-at-sara-wedding-2.jpg" 
             alt="Bulgaria Mountains" 
-            className="w-full h-full object-cover grayscale mix-blend-multiply opacity-80"
+            className="w-full h-full object-cover object-[center_12%] md:object-center grayscale mix-blend-multiply opacity-80"
           />
         </div>
       </section>
