@@ -26,7 +26,7 @@ const directGiftOptions = [
   {
     name: 'Revolut',
     href: REVOLUT_LINK,
-    detail: 'Sam Young',
+    detail: 'Sam Jung',
   },
 ];
 
@@ -35,14 +35,14 @@ const qrGiftOptions = [
     name: 'Revolut QR',
     href: REVOLUT_LINK,
     image: '/abby-sam-photos/Donate with revolut qr code.jpeg',
-    alt: 'Revolut donation QR code for Sam Young',
+    alt: 'Revolut donation QR code for Sam Jung',
     note: 'Scan to give through Revolut.',
   },
   {
     name: 'PayPal QR',
     href: PAYPAL_LINK,
     image: '/abby-sam-photos/donate with paypall.jpeg',
-    alt: 'PayPal donation QR code for Sam Young',
+    alt: 'PayPal donation QR code for Sam Jung',
     note: 'Scan to give through PayPal.',
   },
 ];
@@ -53,13 +53,11 @@ const timelineSteps = [
     label: 'Before You Go',
     title: 'Buy Tickets & Start Planning',
     timing: 'As early as you can',
-    summary: 'Once you know you are coming, start watching flights and send us your rough travel plans.',
+    summary: 'Book your flight, then send us your travel plans.',
     details: [
-      'International tickets are usually easier when booked earlier, especially around late spring.',
-      'If you want help comparing arrival options, we are happy to help think through routes and timing.',
-      'Trying to arrive before the main gatherings begin will make the whole trip feel much more relaxed.',
+      'Sofia will probably be the easiest airport for most guests.',
+      'If you want help comparing routes or timing, we are happy to help.',
     ],
-    tips: ['Book flights', 'Share itinerary', 'Ask us questions'],
     accent: 'bg-[#E8D8C1]',
     icon: Plane,
   },
@@ -68,49 +66,62 @@ const timelineSteps = [
     label: 'Get Ready',
     title: 'Pack for a Week That Mixes Celebration and Travel',
     timing: 'The week before',
-    summary: 'Think comfortable, flexible, and easy to move around in during a full trip abroad.',
+    summary: 'Pack simple, comfortable clothes for travel and wedding events.',
     details: [
-      'Bring your passport, travel essentials, and any medications you need for the full trip.',
-      'Pack one dressier outfit for wedding events and comfortable clothes for hanging out, exploring, and travel days.',
-      'Layers will likely be your friend, especially for evenings or longer days out.',
+      'Bring your passport, medications, and travel essentials.',
+      'Pack one dressier outfit and comfortable clothes for the rest of the trip.',
+      'A few layers will probably be helpful.',
     ],
-    tips: ['Passport', 'Wedding outfit', 'Comfy shoes'],
     accent: 'bg-[#D9D4C8]',
     icon: Briefcase,
   },
   {
     phase: 'Step 03',
     label: 'Arrive',
-    title: 'Land, Exhale, and Get Settled',
+    title: 'Arrive!',
     timing: 'Arrival day',
-    summary: 'This part is about recovering from travel, checking in, and getting your bearings.',
+    summary: 'Get settled in Stara Zagora and rest from travel.',
     details: [
-      'After you arrive, settle into your room, rest a little, and let us know you made it safely.',
-      'We have arranged a group hotel option in central Stara Zagora for guests who want to stay together.',
-      'No need to have everything figured out right away. The goal is simply to land and breathe.',
+      'We cannot make a group hotel reservation.',
+      'Hotel Vereya is one cheaper hotel option in the city center.',
+      'If you would rather stay in an Airbnb, we would be happy to help you find one.',
+      'We are also hoping to help coordinate rental vehicles.',
     ],
-    tips: ['Check in', 'Hotel option', 'Text us when you arrive'],
     accent: 'bg-[#E3E0D3]',
     icon: MapPin,
     hotel: {
       name: 'Hotel Vereya',
       rate: 'EUR70 per room, per night',
-      note: 'Includes breakfast and gives guests a simple home base in the center of town.',
+      note: 'Includes breakfast and is a solid lower-cost option if you prefer a hotel instead of an Airbnb.',
       href: HOTEL_LINK,
     },
+    links: [
+      {
+        label: 'Train schedules',
+        href: 'https://razpisanie.bdz.bg/bg',
+      },
+      {
+        label: 'Bus tickets',
+        href: 'https://www.obilet.com/bg',
+      },
+      {
+        label: 'Bus and rail planning',
+        href: 'https://www.omio.com',
+      },
+    ],
   },
   {
     phase: 'Step 04',
     label: 'Celebrate',
-    title: 'Pre-Wedding Gatherings and Time Together',
-    timing: 'May 23-24, 2026',
-    summary: 'These days are for seeing people, sharing meals, exploring, and easing into the week together.',
+    title: 'Pre-Wedding and Time Together',
+    timing: 'May 24, 2026',
+    summary: 'We will spend a few days together before the wedding.',
     details: [
-      'We want this part of the trip to feel welcoming and relational, not rushed or overly scheduled.',
-      'Expect time for informal gatherings, conversations, and enjoying Bulgaria with the people who made the trip.',
-      'This is a great window for anyone arriving a little early to settle in before the ceremony.',
+      'This time will include gathering, meals, and time together.',
+      'More details will be shared as plans come together.',
     ],
-    tips: ['Meals together', 'Explore the area', 'Enjoy slower moments'],
+    addressLabel: 'Meet-up Address',
+    address: 'St. Tsar Ivan Asen II 121, 6000 Stara Zagora',
     accent: 'bg-[#E8CDBE]',
     icon: Sparkles,
   },
@@ -118,31 +129,44 @@ const timelineSteps = [
     phase: 'Step 05',
     label: 'Wedding Day',
     title: 'Ceremony and Celebration',
-    timing: 'May 26, 2026',
-    summary: 'The heart of the trip: the ceremony itself and the time around it.',
+    timing: 'May 25, 2026',
+    summary: 'This is the main celebration.',
     details: [
-      'We will share final timing and venue details closer to the wedding so everyone has the clearest information.',
-      'The day will be focused on celebrating, being together, and beginning our marriage in a place that matters deeply to us.',
-      'We know many guests are traveling far, so we want the day to feel meaningful, joyful, and worth the journey.',
+      'We will share final timing closer to the wedding.',
+      'We are excited to celebrate with everyone who makes the trip.',
     ],
-    tips: ['Final details later', 'Celebrate together', 'Take lots of photos'],
+    addressLabel: 'Ceremony Address',
+    address: 'Blvd. Nikola Petkov 10, 6009, Stara Zagora, Bulgaria',
     accent: 'bg-[#D7B7AA]',
     icon: Sparkles,
   },
   {
     phase: 'Step 06',
     label: 'Afterward',
-    title: 'Hang Out, Recover, and Fly Home',
+    title: 'Travel Home or Keep Exploring',
     timing: 'After the ceremony',
-    summary: 'Think gentle goodbyes, one more coffee, and heading home with good memories.',
+    summary: 'After the wedding, you can head home or keep traveling.',
     details: [
-      'Some guests may leave soon after the wedding, while others may have more time to linger before flying home.',
-      'If schedules line up, we would love extra moments together before everyone heads back.',
-      'This part does not need to be complicated. It can simply be restful and sweet.',
+      'We will leave for our honeymoon after the wedding, so we will not be meeting up the following day.',
+      'If you do not want to drive, bus and train options are available.',
+      'The bus is usually faster than the train.',
     ],
-    tips: ['Easy departure day', 'One last hang', 'Travel home'],
     accent: 'bg-[#D7C6B8]',
     icon: Plane,
+    links: [
+      {
+        label: 'Train schedules',
+        href: 'https://razpisanie.bdz.bg/bg',
+      },
+      {
+        label: 'Bus tickets',
+        href: 'https://www.obilet.com/bg',
+      },
+      {
+        label: 'Bus and rail planning',
+        href: 'https://www.omio.com',
+      },
+    ],
   },
 ];
 
@@ -242,11 +266,11 @@ export default function App() {
         <div className="w-full md:w-1/2 flex flex-col justify-center p-8 md:p-16 lg:p-24 order-2 md:order-1">
           <div className="fade-up">
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.1] mb-6">
-              Abby Proctor<br/>& Sam Young
+              Abby Proctor<br/>& Sam Jung
             </h1>
             <div className="font-mono text-sm md:text-base uppercase tracking-widest text-tanBg mb-8 space-y-2 lg:max-w-sm">
               <p>Stara Zagora, Bulgaria</p>
-              <p>May 26, 2026</p>
+              <p>May 24-25, 2026</p>
             </div>
             <p className="font-sans text-lg md:text-xl text-textLight/80 max-w-md mb-12">
               Join us as we get married in a place that has become home to us.
@@ -259,7 +283,7 @@ export default function App() {
         <div className="w-full md:w-1/2 h-[40vh] md:h-auto order-1 md:order-2 bg-tanBg overflow-hidden">
           <img 
             src="/abby-sam-photos/abby-sam-at-sara-wedding-2.jpg" 
-            alt="Bulgaria Mountains" 
+            alt="Abby and Sam together outdoors" 
             className="w-full h-full object-cover object-[center_12%] md:object-center grayscale mix-blend-multiply opacity-80"
           />
         </div>
@@ -282,8 +306,8 @@ export default function App() {
       {/* Photo Insert 1 */}
       <div className="w-full h-64 md:h-96 overflow-hidden bg-tanBg">
         <img 
-          src="/abby-sam-photos/Athens-Drone-3.jpg" 
-          alt="A scenic drone photo from Athens" 
+          src="/abby-sam-photos/tulovo-drone.jpeg" 
+          alt="Drone view of Tulovo" 
           className="w-full h-full object-cover grayscale mix-blend-multiply opacity-70 fade-up"
         />
       </div>
@@ -294,9 +318,6 @@ export default function App() {
           <div className="max-w-3xl mb-16 md:mb-24 fade-up">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-tanBg mb-4">Trip Overview</p>
             <h2 className="font-serif text-4xl md:text-6xl leading-tight mb-6">A simple way to see the whole trip at a glance.</h2>
-            <p className="text-textLight/75 text-base md:text-lg max-w-2xl">
-              From booking your ticket to heading home, this timeline walks you through the practical details step by step.
-            </p>
           </div>
 
           <div className="relative pl-6 md:pl-10 lg:pl-12">
@@ -316,8 +337,12 @@ export default function App() {
                     {/* The content card */}
                     <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 pl-4 md:pl-6 pt-1 md:pt-2">
                       <div className="lg:w-1/3 shrink-0">
-                        <p className="font-mono text-xs uppercase tracking-[0.25em] text-tanBg mb-3">{step.phase} &middot; {step.timing}</p>
+                        <p className="font-mono text-xs uppercase tracking-[0.25em] text-tanBg mb-2">{step.phase}</p>
                         <h3 className="font-serif text-3xl md:text-4xl leading-tight text-white mb-4">{step.title}</h3>
+                        <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3">
+                          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-tanBg mb-1">Date</p>
+                          <p className="text-sm md:text-base text-textLight/85">{step.timing}</p>
+                        </div>
                       </div>
                       <div className="lg:w-2/3">
                         <p className="text-lg md:text-xl text-textLight/90 mb-6 leading-relaxed">{step.summary}</p>
@@ -343,13 +368,32 @@ export default function App() {
                           </div>
                         )}
 
-                        <div className="flex flex-wrap gap-2 mt-8 border-t border-white/10 pt-6">
-                          {step.tips.map((tip) => (
-                            <span key={tip} className="rounded-full bg-white/[0.03] border border-white/10 px-4 py-2 font-mono text-[10px] md:text-[11px] uppercase tracking-[0.15em] text-textLight/60 mix-blend-screen">
-                              {tip}
-                            </span>
-                          ))}
-                        </div>
+                        {step.address && (
+                          <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-white/5 p-6 md:p-8 mb-8 backdrop-blur-sm">
+                            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-tanBg mb-3">{step.addressLabel || 'Address'}</p>
+                            <p className="text-textLight/85 text-base md:text-lg leading-relaxed">{step.address}</p>
+                          </div>
+                        )}
+
+                        {step.links && (
+                          <div className="mt-8 mb-8">
+                            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-tanBg mb-4">Helpful Links</p>
+                            <div className="space-y-3">
+                              {step.links.map((link) => (
+                                <a
+                                  key={link.href}
+                                  href={link.href}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-textLight/80 transition-colors hover:bg-white/[0.08]"
+                                >
+                                  <span>{link.label}</span>
+                                  <ExternalLink size={14} />
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
