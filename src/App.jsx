@@ -114,7 +114,7 @@ const timelineSteps = [
     phase: 'Step 04',
     label: 'Celebrate',
     title: 'Pre-Wedding and Time Together',
-    timing: 'May 24, 2026',
+    timing: 'May 24-25, 2026',
     summary: 'We will spend a few days together before the wedding.',
     details: [
       'This time will include gathering, meals, and time together.',
@@ -129,7 +129,7 @@ const timelineSteps = [
     phase: 'Step 05',
     label: 'Wedding Day',
     title: 'Ceremony and Celebration',
-    timing: 'May 25, 2026',
+    timing: 'May 26, 2026',
     summary: 'This is the main celebration.',
     details: [
       'We will share final timing closer to the wedding.',
@@ -270,7 +270,7 @@ export default function App() {
             </h1>
             <div className="font-mono text-sm md:text-base uppercase tracking-widest text-tanBg mb-8 space-y-2 lg:max-w-sm">
               <p>Stara Zagora, Bulgaria</p>
-              <p>May 24-25, 2026</p>
+              <p>May 26, 2026</p>
             </div>
             <p className="font-sans text-lg md:text-xl text-textLight/80 max-w-md mb-12">
               Join us as we get married in a place that has become home to us.
@@ -306,8 +306,8 @@ export default function App() {
       {/* Photo Insert 1 */}
       <div className="w-full h-64 md:h-96 overflow-hidden bg-tanBg">
         <img 
-          src="/abby-sam-photos/tulovo-drone.jpeg" 
-          alt="Drone view of Tulovo" 
+          src="/abby-sam-photos/Athens-Drone-3.jpg" 
+          alt="A scenic drone photo from Athens" 
           className="w-full h-full object-cover grayscale mix-blend-multiply opacity-70 fade-up"
         />
       </div>
