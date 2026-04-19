@@ -108,6 +108,10 @@ const timelineSteps = [
         label: 'Bus and rail planning',
         href: 'https://www.omio.com',
       },
+      {
+        label: 'Car rental',
+        href: 'https://easyrent.bg/en',
+      },
     ],
   },
   {
@@ -306,8 +310,8 @@ export default function App() {
       {/* Photo Insert 1 */}
       <div className="w-full h-64 md:h-96 overflow-hidden bg-tanBg">
         <img 
-          src="/abby-sam-photos/Athens-Drone-3.jpg" 
-          alt="A scenic drone photo from Athens" 
+          src="/abby-sam-photos/tulovo-new.jpg" 
+          alt="Drone view of Tulovo" 
           className="w-full h-full object-cover grayscale mix-blend-multiply opacity-70 fade-up"
         />
       </div>
