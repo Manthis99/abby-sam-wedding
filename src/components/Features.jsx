@@ -36,7 +36,6 @@ const DiagnosticShuffler = () => {
       
       <div className="relative h-32 w-full mt-4 perspective-[1000px]">
         {cards.map((card, index) => {
-          const isTop = index === 0;
           return (
             <div 
               key={card.id}

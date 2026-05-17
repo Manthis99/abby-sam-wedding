@@ -4,12 +4,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ArchiveCard = ({ index, title, desc, step, SvgVisual }) => {
+const ArchiveCard = ({ title, desc, step, SvgVisual }) => {
+  const Visual = SvgVisual;
+
   return (
     <div className="archive-card h-screen w-full flex items-center justify-center sticky top-0 bg-background overflow-hidden origin-top">
       <div className="max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
         <div className="w-full md:w-1/2 flex items-center justify-center h-64 md:h-[500px]">
-          <SvgVisual />
+          <Visual />
         </div>
         <div className="w-full md:w-1/2 flex flex-col">
           <div className="font-mono text-accent mb-6 tracking-widest uppercase">Phase {step}</div>
@@ -87,21 +89,18 @@ export const ProtocolSection = () => {
   return (
     <section ref={containerRef} className="relative w-full">
       <ArchiveCard 
-        index={0}
         step="01"
         title="The Gathering"
         desc="May 23-24. Guests arrive in Stara Zagora from around the world. We come together to build connections and explore the city we call home."
         SvgVisual={visuals[0]}
       />
       <ArchiveCard 
-        index={1}
         step="02"
         title="The Calibration"
         desc="May 25. Final preparations and rest. A moment of pause to center ourselves before the ceremony, reflecting on the commitment ahead."
         SvgVisual={visuals[1]}
       />
       <ArchiveCard 
-        index={2}
         step="03"
         title="The Commitment"
         desc="May 26. The ceremony. In the presence of God and our community, we officially begin our journey as one."

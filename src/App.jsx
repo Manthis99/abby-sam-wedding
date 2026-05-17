@@ -6,6 +6,7 @@ import { Briefcase, ExternalLink, MapPin, Menu, Plane, Sparkles, X } from 'lucid
 gsap.registerPlugin(ScrollTrigger);
 
 const RSVP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdp1MPmL-K4xIklMsHzstFJ_ejoASH1aoT96NLl583pG0k3OQ/viewform?usp=sharing&ouid=109118939643548411635";
+const WEDDING_UPDATE_FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSey_cCpJSz3d3xxg7knzNJE9uorUWhvMlkNtcthPQHZHUGnbg/viewform?usp=header";
 const CASH_APP_LINK = "https://cash.app/$tkdtitan";
 const VENMO_LINK = "https://venmo.com/u/proctorarp";
 const REVOLUT_LINK = "https://revolut.me/sjung97";
@@ -44,6 +45,54 @@ const qrGiftOptions = [
     image: '/abby-sam-photos/donate with paypall.jpeg',
     alt: 'PayPal donation QR code for Sam Jung',
     note: 'Scan to give through PayPal.',
+  },
+];
+
+const eventDays = [
+  {
+    day: 'Sunday',
+    date: 'May 24, 2026',
+    title: 'Picnic at Artilerisky Park',
+    time: '3:00 PM–7:00 PM',
+    location: 'Artilerisky Park, Stara Zagora',
+    mapLink: 'https://maps.app.goo.gl/Fh9vqX1Qs9gDAwj4A',
+    summary: 'An easy afternoon picnic with time to be together before the wedding week begins.',
+    details: [
+      'Sandwiches will be provided.',
+      'There is a playground for kids, and we will bring frisbee, badminton, balls, and other simple games.',
+      'Nothing formal is planned for this time — just space to spend the afternoon together.',
+      'Bulgaria also celebrates its alphabet and language that day. There are usually city parades in the morning, and you are welcome to join us if we go watch. You are equally welcome to sleep in and have a cozy morning.',
+    ],
+  },
+  {
+    day: 'Monday',
+    date: 'May 25, 2026',
+    title: 'Church Gathering',
+    time: '2:00 PM–8:00 PM',
+    location: 'The church we attend in Stara Zagora',
+    mapLink: 'https://maps.app.goo.gl/3GzAyVYTs1Z5Vrza6',
+    summary: 'A relaxed gathering at our church building with fellowship, games, walks, and dinner.',
+    details: [
+      'Dinner will be provided.',
+      'There will be a chance to share something in the program. Please contact our best man and maid of honor if you would like to do something.',
+      'There will also be time for fellowship, games, and walks nearby.',
+    ],
+  },
+  {
+    day: 'Tuesday',
+    date: 'May 26, 2026',
+    title: 'Wedding Ceremony and Reception',
+    time: 'Ceremony starts at 4:00 PM',
+    location: 'Wedding hall in Stara Zagora',
+    mapLink: 'https://maps.app.goo.gl/i4SvCbt968irFATTA',
+    summary: 'The ceremony and reception will both be in the hall. You are welcome to arrive earlier.',
+    details: [
+      'We will have a short ceremony with worship, vows, and blessings.',
+      'After the ceremony there will be free time and group pictures.',
+      'The officials will come later for the signing of the documents.',
+      'Dinner will be provided after that.',
+      'There will be background music and time to dance.',
+    ],
   },
 ];
 
@@ -215,7 +264,8 @@ export default function App() {
   const navLinks = [
     { name: 'Story', href: '#story' },
     { name: 'Journey', href: '#journey' },
-    { name: 'RSVP', href: '#rsvp' },
+    { name: 'Schedule', href: '#schedule' },
+    { name: 'Forms', href: '#rsvp' },
     { name: 'Gifts', href: '#gifts' },
   ];
 
@@ -408,6 +458,59 @@ export default function App() {
         </div>
       </section>
 
+      {/* 4. THREE DAY SCHEDULE SECTION */}
+      <section id="schedule" className="w-full py-24 md:py-32 px-6 bg-background">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-3xl mb-14 fade-up">
+            <p className="font-mono text-xs uppercase tracking-[0.35em] text-textDark/50 mb-4">Wedding Update</p>
+            <h2 className="font-serif text-4xl md:text-6xl leading-tight mb-6">The three days together.</h2>
+            <div className="space-y-4 text-base md:text-lg text-textDark/75">
+              <p>To save time, this update is written in English. We hope this gives you a clearer idea of what will happen during the three wedding days.</p>
+              <p>Thank you for your patience as we organize everything across countries and languages. Please read the details carefully, and fill out the quick form at the end.</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            {eventDays.map((day) => (
+              <article key={day.date} className="fade-up rounded-[2rem] border border-darkBg/10 bg-white shadow-sm overflow-hidden flex flex-col">
+                <div className="bg-darkBg text-textLight p-6 md:p-8">
+                  <p className="font-mono text-xs uppercase tracking-[0.28em] text-tanBg mb-3">{day.day}</p>
+                  <h3 className="font-serif text-3xl md:text-4xl leading-tight mb-4">{day.title}</h3>
+                  <div className="space-y-2 text-textLight/80">
+                    <p>{day.date}</p>
+                    <p>{day.time}</p>
+                  </div>
+                </div>
+                <div className="p-6 md:p-8 flex-1 flex flex-col">
+                  <p className="text-lg text-textDark/85 mb-6 leading-relaxed">{day.summary}</p>
+                  <div className="rounded-2xl bg-tanBg/35 border border-darkBg/10 p-4 mb-6">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-textDark/50 mb-2">Location</p>
+                    <p className="text-textDark/85 mb-4">{day.location}</p>
+                    <a
+                      href={day.mapLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-darkBg font-semibold underline underline-offset-4 hover:text-black transition-colors"
+                    >
+                      Open in Google Maps <ExternalLink size={16} />
+                    </a>
+                  </div>
+                  <div className="space-y-4 mt-auto">
+                    {day.details.map((detail) => (
+                      <div key={detail} className="flex items-start gap-3">
+                        <span className="mt-2.5 h-1.5 w-1.5 rounded-full bg-darkBg/50 shrink-0"></span>
+                        <p className="text-sm md:text-base text-textDark/70 leading-relaxed">{detail}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
 
 
       {/* 5. RSVP & 6. LIVESTREAM SECTION */}
@@ -415,23 +518,25 @@ export default function App() {
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           
           <div className="fade-up">
-            <h2 className="font-serif text-3xl md:text-4xl mb-6">Let Us Know Your Plans</h2>
+            <h2 className="font-serif text-3xl md:text-4xl mb-6">A Quick Wedding Form</h2>
             <div className="space-y-4 text-textLight/80 mb-8">
-              <p>Please take a few minutes to fill out this form, whether you plan to attend in person or join via livestream.</p>
-              <p>This helps us organize lodging, transportation, and overall planning.</p>
+              <p>We created a quick two-question form to help us plan drinks and music for the wedding.</p>
+              <p>Please let us know if and which alcoholic drinks you would have, and share 1–3 favorite songs for the playlist. It would help us most if every person fills it out separately.</p>
             </div>
-            <Button href={RSVP_LINK} variant="primary">
-              Complete the Form <ExternalLink size={18} />
+            <Button href={WEDDING_UPDATE_FORM_LINK} variant="primary">
+              Fill Out the Wedding Form <ExternalLink size={18} />
             </Button>
           </div>
 
           <div className="fade-up border-t border-textLight/10 md:border-t-0 md:border-l border-textLight/10 md:pl-16 pt-16 md:pt-0">
-            <h2 className="font-serif text-3xl md:text-4xl mb-6">Joining From Afar</h2>
-            <div className="space-y-4 text-textLight/80">
-              <p>We know not everyone will be able to travel internationally, and that’s okay.</p>
-              <p>We’ll be sharing a livestream of the ceremony so you can still be part of the day.</p>
-              <p className="italic font-serif mt-4 text-tanBg">Details will be shared closer to the wedding.</p>
+            <h2 className="font-serif text-3xl md:text-4xl mb-6">Still Need to RSVP?</h2>
+            <div className="space-y-4 text-textLight/80 mb-8">
+              <p>If you have not filled out the original RSVP yet, please do that too. It helps us keep track of attendance, lodging, transportation, and livestream plans.</p>
+              <p className="italic font-serif mt-4 text-tanBg">We’re looking forward to this time with you all, and we appreciate your prayers for the final organizational details.</p>
             </div>
+            <Button href={RSVP_LINK} variant="outlineLight">
+              Original RSVP Form <ExternalLink size={18} />
+            </Button>
           </div>
 
         </div>
