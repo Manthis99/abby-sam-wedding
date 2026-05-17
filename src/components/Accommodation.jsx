@@ -57,7 +57,7 @@ export const AccommodationSection = () => {
             <span>Wedding Reception Map</span>
             <span>View Location</span>
           </a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdp1MPmL-K4xIklMsHzstFJ_ejoASH1aoT96NLl583pG0k3OQ/viewform" target="_blank" rel="noreferrer" className="flex justify-between py-6 border-t border-b border-textDark/20 hover:text-white transition-colors pb-6">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSey_cCpJSz3d3xxg7knzNJE9uorUWhvMlkNtcthPQHZHUGnbg/viewform?usp=header" target="_blank" rel="noreferrer" className="flex justify-between py-6 border-t border-b border-textDark/20 hover:text-white transition-colors pb-6">
             <span className="font-bold">RSVP NOW FORM</span>
             <span>Click Here</span>
           </a>

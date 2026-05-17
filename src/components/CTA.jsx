@@ -39,7 +39,7 @@ export const CTASection = () => {
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-10">
           <a 
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdp1MPmL-K4xIklMsHzstFJ_ejoASH1aoT96NLl583pG0k3OQ/viewform" 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSey_cCpJSz3d3xxg7knzNJE9uorUWhvMlkNtcthPQHZHUGnbg/viewform?usp=header" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-magnetic w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 bg-accent text-background rounded-full font-heading font-semibold text-lg hover:bg-opacity-90 transition-colors"

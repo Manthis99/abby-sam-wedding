@@ -5,7 +5,7 @@ import { Briefcase, ExternalLink, MapPin, Menu, Plane, Sparkles, X } from 'lucid
 
 gsap.registerPlugin(ScrollTrigger);
 
-const RSVP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdp1MPmL-K4xIklMsHzstFJ_ejoASH1aoT96NLl583pG0k3OQ/viewform?usp=sharing&ouid=109118939643548411635";
+const RSVP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSey_cCpJSz3d3xxg7knzNJE9uorUWhvMlkNtcthPQHZHUGnbg/viewform?usp=header";
 const WEDDING_UPDATE_FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSey_cCpJSz3d3xxg7knzNJE9uorUWhvMlkNtcthPQHZHUGnbg/viewform?usp=header";
 const CASH_APP_LINK = "https://cash.app/$tkdtitan";
 const VENMO_LINK = "https://venmo.com/u/proctorarp";
