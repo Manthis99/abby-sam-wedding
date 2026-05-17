@@ -34,7 +34,7 @@ export const CTASection = () => {
           Join the Celebration
         </h2>
         <p className="font-mono text-sm md:text-base text-background/80 max-w-xl mx-auto mb-12 relative z-10 leading-relaxed">
-          Please fill out the RSVP survey even if you plan to watch the livestream. It helps us keep track of everything across borders. 
+          Please fill out the drinks and music form so we can plan the reception well across borders. 
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-10">
@@ -44,7 +44,7 @@ export const CTASection = () => {
             rel="noopener noreferrer" 
             className="btn-magnetic w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 bg-accent text-background rounded-full font-heading font-semibold text-lg hover:bg-opacity-90 transition-colors"
           >
-            <span className="relative z-10">RSVP Output</span>
+            <span className="relative z-10">Drinks & Music Form</span>
             <ArrowRight size={20} className="relative z-10" />
           </a>
           

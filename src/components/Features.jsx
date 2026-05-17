@@ -6,11 +6,11 @@ import { MousePointer2 } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 // -----------------------------------------------------------------
-// CARD 1: Diagnostic Shuffler (RSVP / Details)
+// CARD 1: Diagnostic Shuffler (Forms / Details)
 // -----------------------------------------------------------------
 const DiagnosticShuffler = () => {
   const [cards, setCards] = useState([
-    { id: 1, title: 'RSVP Form', desc: 'Secure your place' },
+    { id: 1, title: 'Drinks & Music Form', desc: 'Help plan the reception' },
     { id: 2, title: 'Details', desc: 'May 23-26 Itinerary' },
     { id: 3, title: 'Livestream', desc: 'Global online access' }
   ]);

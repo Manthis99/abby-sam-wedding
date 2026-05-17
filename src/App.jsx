@@ -265,7 +265,7 @@ export default function App() {
     { name: 'Story', href: '#story' },
     { name: 'Journey', href: '#journey' },
     { name: 'Schedule', href: '#schedule' },
-    { name: 'Forms', href: '#rsvp' },
+    { name: 'Wedding Form', href: '#rsvp' },
     { name: 'Gifts', href: '#gifts' },
   ];
 
@@ -285,7 +285,7 @@ export default function App() {
               <a key={link.name} href={link.href} className="hover:text-tanBg transition-colors">{link.name}</a>
             ))}
             <a href={RSVP_LINK} target="_blank" rel="noreferrer" className="bg-darkBg text-textLight px-4 py-2 rounded-full hover:bg-darkBg/80 transition-colors">
-              RSVP
+              Drinks & Music Form
             </a>
           </div>
 
@@ -309,7 +309,7 @@ export default function App() {
               </a>
             ))}
             <a href={RSVP_LINK} target="_blank" rel="noreferrer" className="py-2 text-tanBg font-bold flex items-center gap-2">
-              RSVP FORM <ExternalLink size={14} />
+              DRINKS & MUSIC FORM <ExternalLink size={14} />
             </a>
           </div>
         )}
@@ -330,7 +330,7 @@ export default function App() {
               Join us as we get married in a place that has become home to us.
             </p>
             <Button href={RSVP_LINK} variant="primary">
-              Fill Out the RSVP Form <ExternalLink size={18} />
+              Fill Out the Drinks & Music Form <ExternalLink size={18} />
             </Button>
           </div>
         </div>
@@ -529,13 +529,13 @@ export default function App() {
           </div>
 
           <div className="fade-up border-t border-textLight/10 md:border-t-0 md:border-l border-textLight/10 md:pl-16 pt-16 md:pt-0">
-            <h2 className="font-serif text-3xl md:text-4xl mb-6">Still Need to RSVP?</h2>
+            <h2 className="font-serif text-3xl md:text-4xl mb-6">Help Us Plan the Reception</h2>
             <div className="space-y-4 text-textLight/80 mb-8">
-              <p>If you have not filled out the original RSVP yet, please do that too. It helps us keep track of attendance, lodging, transportation, and livestream plans.</p>
+              <p>The form asks about alcoholic drinks and song suggestions so we know what to prepare for the wedding reception.</p>
               <p className="italic font-serif mt-4 text-tanBg">We’re looking forward to this time with you all, and we appreciate your prayers for the final organizational details.</p>
             </div>
             <Button href={RSVP_LINK} variant="outlineLight">
-              Original RSVP Form <ExternalLink size={18} />
+              Drinks & Playlist Form <ExternalLink size={18} />
             </Button>
           </div>
 
