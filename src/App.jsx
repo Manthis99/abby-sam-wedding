@@ -51,11 +51,11 @@ const ZoomCountdown = ({ compact = false }) => {
   }
 
   return (
-    <div className={`grid grid-cols-4 ${compact ? 'gap-1.5' : 'gap-2 md:gap-3'}`} aria-label="Countdown to the Zoom call">
+    <div className={`grid grid-cols-4 ${compact ? 'gap-1.5' : 'gap-1.5 md:gap-3'}`} aria-label="Countdown to the Zoom call">
       {units.map(([label, value]) => (
-        <div key={label} className={`rounded-2xl border border-white/15 bg-white/10 text-center shadow-inner ${compact ? 'px-2 py-2' : 'px-3 py-2.5 md:px-4'}`}>
-          <div className={`font-serif leading-none text-white ${compact ? 'text-xl' : 'text-2xl md:text-3xl'}`}>{String(value).padStart(2, '0')}</div>
-          <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.22em] text-textLight/55">{label}</div>
+        <div key={label} className={`rounded-xl md:rounded-2xl border border-white/15 bg-white/10 text-center shadow-inner ${compact ? 'px-2 py-2' : 'px-2 py-1.5 md:px-4 md:py-2.5'}`}>
+          <div className={`font-serif leading-none text-white ${compact ? 'text-xl' : 'text-lg md:text-3xl'}`}>{String(value).padStart(2, '0')}</div>
+          <div className="mt-0.5 md:mt-1 font-mono text-[7px] md:text-[9px] uppercase tracking-[0.18em] md:tracking-[0.22em] text-textLight/55">{label}</div>
         </div>
       ))}
     </div>
@@ -375,20 +375,20 @@ export default function App() {
         )}
 
         <div className="border-t border-darkBg/10 bg-darkBg text-textLight">
-          <div className="max-w-6xl mx-auto px-6 py-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-6xl mx-auto px-6 py-2 md:py-3 flex flex-col gap-2 md:gap-3 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center gap-3">
               <span className="hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-full bg-tanBg text-darkBg shadow-lg shadow-tanBg/20">
                 <Video size={18} />
               </span>
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-tanBg">Livestream countdown</p>
-                <p className="font-serif text-xl leading-tight md:text-2xl">Join the wedding on Zoom</p>
+                <p className="font-mono text-[8px] md:text-[10px] uppercase tracking-[0.28em] md:tracking-[0.32em] text-tanBg">Livestream countdown</p>
+                <p className="font-serif text-base leading-tight md:text-2xl">Join the wedding on Zoom</p>
               </div>
             </div>
-            <div className="flex flex-col gap-3 md:flex-row md:items-center">
+            <div className="flex items-center gap-2 md:gap-3 md:flex-row">
               <ZoomCountdown />
-              <a href={ZOOM_LINK} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-tanBg px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-darkBg shadow-lg shadow-black/20 transition-all hover:-translate-y-0.5 hover:bg-[#ead4b8]">
-                Join Zoom Call <ExternalLink size={14} />
+              <a href={ZOOM_LINK} target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-tanBg px-3 py-2 md:px-5 md:py-3 font-mono text-[9px] md:text-xs uppercase tracking-[0.16em] md:tracking-[0.18em] text-darkBg shadow-lg shadow-black/20 transition-all hover:-translate-y-0.5 hover:bg-[#ead4b8]">
+                <span className="hidden sm:inline">Join</span> Zoom <ExternalLink size={12} className="md:h-3.5 md:w-3.5" />
               </a>
             </div>
           </div>
@@ -396,7 +396,7 @@ export default function App() {
       </nav>
 
       {/* 1. HERO SECTION */}
-      <section className="w-full min-h-[90vh] md:min-h-screen pt-56 md:pt-44 flex flex-col md:flex-row bg-darkBg text-textLight">
+      <section className="w-full min-h-[90vh] md:min-h-screen pt-44 md:pt-44 flex flex-col md:flex-row bg-darkBg text-textLight">
         <div className="w-full md:w-1/2 flex flex-col justify-center p-8 md:p-16 lg:p-24 order-2 md:order-1">
           <div className="fade-up">
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.1] mb-6">
